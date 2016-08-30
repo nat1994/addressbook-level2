@@ -32,7 +32,12 @@ public class Parser {
      * Signals that the user input could not be parsed.
      */
     public static class ParseException extends Exception {
-        ParseException(String message) {
+        /**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
+		ParseException(String message) {
             super(message);
         }
     }

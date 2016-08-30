@@ -17,7 +17,12 @@ public class UniquePersonList implements Iterable<Person> {
      * Signals that an operation would have violated the 'no duplicates' property of the list.
      */
     public static class DuplicatePersonException extends DuplicateDataException {
-        protected DuplicatePersonException() {
+        /**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
+		protected DuplicatePersonException() {
             super("Operation would result in duplicate persons");
         }
     }
@@ -26,7 +31,12 @@ public class UniquePersonList implements Iterable<Person> {
      * Signals that an operation targeting a specified person in the list would fail because
      * there is no such matching person in the list.
      */
-    public static class PersonNotFoundException extends Exception {}
+    public static class PersonNotFoundException extends Exception {
+
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;}
 
     private final List<Person> internalList = new ArrayList<>();
 
