@@ -11,10 +11,13 @@ public class Address {
     public static final String EXAMPLE = "123, some street";
     public static final String MESSAGE_ADDRESS_CONSTRAINTS = "Person addresses can be in any format";
     public static final String ADDRESS_VALIDATION_REGEX = ".+";
-
     public final String value;
     private boolean isPrivate;
-
+    private Block blockOfAddress;
+    private Street streetOfAddress;
+    private Unit unitOfAddress;
+    private PostalCode postalcodeOfAddress;
+    
     /**
      * Validates given address.
      *
@@ -26,6 +29,11 @@ public class Address {
             throw new IllegalValueException(MESSAGE_ADDRESS_CONSTRAINTS);
         }
         this.value = address;
+        String[] partsOfAddress = address.split(",");
+        blockOfAddress = new Block(partsOfAddress[0]);
+        streetOfAddress = new Street(partsOfAddress[1]);
+        unitOfAddress = new Unit(partsOfAddress[2]);
+        postalcodeOfAddress = new PostalCode(partsOfAddress[3]);
     }
 
     /**
