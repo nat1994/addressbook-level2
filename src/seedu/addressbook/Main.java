@@ -1,6 +1,7 @@
 package seedu.addressbook;
 
 import seedu.addressbook.data.person.ReadOnlyPerson;
+
 import seedu.addressbook.storage.StorageFile.*;
 
 import seedu.addressbook.commands.*;
@@ -8,7 +9,7 @@ import seedu.addressbook.data.AddressBook;
 import seedu.addressbook.parser.Parser;
 import seedu.addressbook.storage.StorageFile;
 import seedu.addressbook.ui.TextUi;
-
+import seedu.addressbook.ui.Formatter;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -84,7 +85,7 @@ public class Main {
             command = new Parser().parseCommand(userCommandText);
             CommandResult result = executeCommand(command);
             recordResult(result);
-            ui.showResultToUser(result);
+            showResultToUser(result);
 
         } while (!ExitCommand.isExit(command));
     }
